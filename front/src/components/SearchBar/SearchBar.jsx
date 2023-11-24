@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ContainerSearchBar, Container, InputSearch, SearchButton } from "./SearchBar.js"
 
 const SearchBar = ({onSearch}) => {
     const [state, setState] = useState('')
@@ -24,10 +25,12 @@ const SearchBar = ({onSearch}) => {
     // }
 
     return(
-        <div className="container_searchbar">
-            <input id="inputSearch" value={state} placeholder="Search..." onChange={handleChange}/>
-            <button id="searchButton" onClick={handleClick}>BUSCAR</button>
-        </div>
+        <ContainerSearchBar>
+            <Container>
+                <InputSearch value={state} placeholder="Search..." onChange={handleChange}/>
+                <SearchButton onClick={handleClick}>BUSCAR</SearchButton>
+            </Container>
+        </ContainerSearchBar>
     )
 }
 

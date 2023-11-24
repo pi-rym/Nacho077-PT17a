@@ -1,0 +1,14 @@
+.containerCards {
+    width: 95%;
+    @include flex(space-evenly, center, row, wrap);
+    column-gap: 1px;
+    row-gap: 30px;
+
+    &:hover > div {
+        opacity: 0.5
+    }
+
+    div:hover {
+        opacity: 1;
+    }
+}

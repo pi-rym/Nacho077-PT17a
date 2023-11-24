@@ -1,8 +1,8 @@
-import './App.css'
-import Cards from './components/Cards.jsx'
+import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import { useState } from 'react'
 import axios from 'axios'
+import s from './App.module.scss'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -29,10 +29,10 @@ function App() {
 
   return (
     <div>
-      <div className="nav">
          <Nav onSearch={onSearch} />
+      <div className={s.containerApp}>
+         <Cards characters={characters} onClose={onClose} />
       </div>
-      <Cards characters={characters} onClose={onClose} />
     </div>
   )
 }

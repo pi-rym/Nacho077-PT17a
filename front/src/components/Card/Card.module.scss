@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
+
+.containerCard{
+    width: 35%;
+    position: relative;
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    @include background-color(0.1);
+    transition-property: opacity;
+    transition-duration: 1s;
+
+    .containerInfo {
+        position: relative;
+        @include flex(space-between, center, row);
+        width: 90%;
+        padding: 15px;
+
+        .containerImg {
+            height: 175px;
+            width: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            @include flex(center, center)
+        }
+
+        .containerData {
+            width: 45%;
+
+            .title {
+                font-family: 'Overlock SC', sans-serif;
+                margin: 0;
+            }
+
+            .data {
+                margin: 0;
+            }
+        }
+
+        .button {
+            display: none;
+        }
+
+        .containerId {
+            display: none;
+        }
+    }
+
+    .button {
+        @include button();
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .containerId {
+        position: absolute;
+        bottom: -30px;
+        right: 0;
+    }
+}

@@ -1,0 +1,36 @@
+@mixin flex($justify:center, $align:center, $direction: column, $wrap: nowrap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin background-color($opacity: 1) {
+    background-color: rgba($background-color, $opacity);
+}
+
+@mixin button(){
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    &:hover {
+        border-color: #646cff;
+    }
+    &:focus,
+    &:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+}
+
+@mixin grid() {
+    display: grid;
+    grid-template-columns: 50px 100px 1fr;
+    grid-template-rows: 50px 100px 1fr;
+}
