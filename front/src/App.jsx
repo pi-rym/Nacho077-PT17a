@@ -2,14 +2,27 @@ import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
-import { useState } from 'react'
+import Form from './components/Form/Form.jsx'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { APIKEY } from './utils.js'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import s from './App.module.scss'
 
 function App() {
   const [characters, setCharacters] = useState([])
+  const [access, setAccess] = useState(false)
+  const navigate = useNavigate()
+
+   const onLogin = (form) => {
+      const EMAIL = "test@gmail.com"
+      const PASS = "123456"
+
+      if (form.password === PASS && form.mail === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
 
   const onSearch = (id) =>  {
       axios(`https://rym2.up.railway.app/api/character/${id}?key=${APIKEY}`)
@@ -30,13 +43,18 @@ function App() {
       }))
    }
 
+   useEffect(() => {
+      !access && navigate("/navigate/login")
+   }, [access])
+
   return (
       <div>
          <Nav onSearch={onSearch} />
          
          <div className={s.containerApp}>
             <Routes>
-               <Route path="/" element={<Cards characters={characters} onClose={onClose} />} />
+               <Route path="/login" element={<Form onLogin={onLogin} />} />
+               <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
                <Route path="/about" element={<About />} />
                <Route path="/detail/:id" element={<Detail />} />
             </Routes>

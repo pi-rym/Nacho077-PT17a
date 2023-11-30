@@ -1,3 +1,4 @@
 .containerApp {
     padding-top: 75px;
+    @include flex()
 }

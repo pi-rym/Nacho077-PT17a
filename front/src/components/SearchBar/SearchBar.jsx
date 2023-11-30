@@ -12,7 +12,7 @@ const SearchBar = ({onSearch}) => {
 
     const handleClick = () => {
         onSearch(state)
-
+        
         setState('')
     }
 

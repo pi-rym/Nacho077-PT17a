@@ -1,0 +1,7 @@
+.containerInfo {
+    width: 90%;
+    height: 85vh;
+    padding: 0 50px;
+    @include flex(space-between, center, row);
+    @include background-color(0.3);
+}
