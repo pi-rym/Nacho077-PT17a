@@ -2,7 +2,7 @@
     width: 100vw;
     height: 50px;
     @include background-color(0.3);
-    @include flex(center, flex-end);
+    @include flex(center, flex-end, row);
     position: fixed;
     top: 0;
 }

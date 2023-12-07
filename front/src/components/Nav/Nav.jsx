@@ -5,14 +5,14 @@ import s from './Nav.module.scss'
 const Nav = ({onSearch}) => {
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location)
 
     return (
     <div className={s.containerNav}>
-        <button onClick={() => navigate('/')}>HOME</button>
+        <button onClick={() => navigate('/home')}>HOME</button>
         <button onClick={() => navigate('/about')}>ABOUT</button>
+        <button onClick={() =>  navigate('/favorites')}>FAVORITES</button>
         <button onClick={() => navigate(-1)}>Back</button>
-        {location.pathname === "/" && <SearchBar onSearch={onSearch} />}
+        {location.pathname === "/home" && <SearchBar onSearch={onSearch} />}
     </div>
     )
 }
