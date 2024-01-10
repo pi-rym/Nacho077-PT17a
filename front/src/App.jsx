@@ -26,7 +26,8 @@ function App() {
    }
 
   const onSearch = (id) =>  {
-      axios(`https://rym2.up.railway.app/api/character/${id}?key=${APIKEY}`)
+      //axios(`https://rym2.up.railway.app/api/character/${id}?key=${APIKEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(
          ({ data }) => {
             if (data.name) {
@@ -35,7 +36,7 @@ function App() {
                window.alert('¡No hay personajes con este ID!');
             }
          }
-      );
+      ).catch(() =>  alert("ERROR"))
    }
 
    const onClose = (id) => {
