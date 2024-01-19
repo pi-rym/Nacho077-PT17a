@@ -10,19 +10,23 @@ import { APIKEY } from './utils.js'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import s from './App.module.scss'
 
+const URL = "http://localhost:3001/rickandmorty"
+
 function App() {
   const [characters, setCharacters] = useState([])
   const [access, setAccess] = useState(false)
   const navigate = useNavigate()
 
    const onLogin = (form) => {
-      const EMAIL = "test@gmail.com"
-      const PASS = "123456"
-
-      if (form.password === PASS && form.mail === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      }
+      axios(`${URL}/users/login?user=${form.mail}&password=${form.password}`)
+      .then(({data}) => {
+         if(data.access) {
+            setAccess(true);
+            navigate('/home');
+         } else {
+            alert('Datos incorrectos')
+         }
+      })
    }
 
   const onSearch = (id) =>  {

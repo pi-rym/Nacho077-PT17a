@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 const Card = ({character, onClose}) => {
     const [isFav, setIsFav] = useState(false)
     const dispatch = useDispatch()
-    const favorites = useSelector(state => state.myFavorites)
+    const favorites = useSelector(state => state.allCharacters)
 
     const handleFavorite = () => {
         if (isFav) {
@@ -30,7 +30,7 @@ const Card = ({character, onClose}) => {
 
     const handleClose = () => {
         onClose(character.id)
-        dispatch(deleteFav(character.id))
+        // dispatch(deleteFav(character.id))
     }
 
     return (
