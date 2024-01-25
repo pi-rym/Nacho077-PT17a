@@ -3,6 +3,10 @@ const service = require('../service/getCharacters')
 const getCharacterByID = async (req, res) => {
     const {id} = req.params
 
+    if (isNaN(Number(id))) {
+        return res.status(500).send("El id no es numerico")
+    }
+
     try {
         const character = await service.getCharacterByID(id)
 
