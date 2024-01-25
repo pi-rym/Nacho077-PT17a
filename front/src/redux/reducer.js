@@ -1,10 +1,11 @@
-import { ADD_FAV, DELETE_FAV, FILTER, ORDER } from './action'
+import { ADD_FAV, DELETE_FAV, FILTER, ORDER, ERROR } from './action'
 
 const initialState = {
     myFavorites: [],
     character: [],
     allCharacters: [],
     isLogged: false,
+    error: ""
 }
 
 export default (state = initialState, action) => {
@@ -54,6 +55,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 myFavorites: orderedChars,
+            }
+        case ERROR:
+            return {
+                ...state,
+                error: action.payload
             }
         default:
             return {...state}
