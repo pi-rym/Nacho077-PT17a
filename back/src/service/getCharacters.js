@@ -1,9 +1,11 @@
 const axios = require('axios')
+const myProcess = process.env
 
-const APIKEY = "henrystaff"
 const getCharacterByID = async (id) => {
     // const {data} = await axios(...)
-    const promise = await axios(`https://rym2.up.railway.app/api/character/${id}?key=${APIKEY}`)
+    // console.log(myProcess)
+    // console.log(`${myProcess.API_URL}/character/${id}?key=${myProcess.API_KEY}`)
+    const promise = await axios(`${myProcess.API_URL}/character/${id}?key=${myProcess.API_KEY}`)
 
     const {data, data: {name, gender, species, image, origin, status}} = promise
 

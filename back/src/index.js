@@ -1,7 +1,15 @@
 const server = require('./server')
+const {conn} = require('./DB_connection')
 
 const PORT = 3001
-server.listen(PORT, () => console.log("Server starting in port", PORT))
+// conn.sync().then(() => {
+server.listen(PORT, async () => {
+    await conn.sync({force: true, alter: false})
+    console.log("DB conectada")
+    console.log("Server starting in port", PORT)
+})
+// })
+
 
 // http.createServer((req, res) => { // request, response
 //     res.setHeader("Access-Control-Allow-Origin", "*")
