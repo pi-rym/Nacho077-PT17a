@@ -31,6 +31,8 @@ const Favorite = sequelize.models.favorite
 User.belongsToMany(Favorite, {through: 'users_favorites'})
 Favorite.belongsToMany(User, {through: 'users_favorites'})
 
+const UserFavorites = sequelize.models.users_favorites
+
 // hasOne 1 - 1 
 // hasMany 1 - N / role.hasMany(user)
 // belongsTo N - 1
@@ -39,5 +41,6 @@ Favorite.belongsToMany(User, {through: 'users_favorites'})
 module.exports = {
    User,
    Favorite,
+   UserFavorites,
    conn: sequelize,
 };
