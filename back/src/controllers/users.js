@@ -52,7 +52,7 @@ const login = async (req, res) => {
             return res.status(403).json({message: "Incorrect password"})
         }
 
-        res.status(200).json({access: auth})
+        res.status(200).json({access: auth, userId: userFind.id})
     } catch(e) {
         res.status(500).json({message: e.mesage})
     }

@@ -19,7 +19,7 @@ function App() {
   const error = useSelector(state => state.error)
 
    const onLogin = (form) => {
-      axios(`${URL}/users/login?user=${form.mail}&password=${form.password}`)
+      axios(`${URL}/users/login?email=${form.mail}&password=${form.password}`)
       .then(({data}) => {
          if(data.access) {
             setAccess(true);
